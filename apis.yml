@@ -9,11 +9,11 @@ position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Workflows
+  - Data Engineering
   - Data Orchestration
   - Data Pipelines
   - ETL
-  - Data Engineering
+  - Workflows
 created: '2026-03-03'
 modified: '2026-03-16'
 url: https://raw.githubusercontent.com/api-evangelist/dagster/refs/heads/main/apis.yml
@@ -28,11 +28,11 @@ apis:
       The GraphQL endpoint is served by the webserver at the /graphql route.
     humanURL: https://docs.dagster.io/api/graphql
     tags:
-      - GraphQL
       - Data Orchestration
-      - Workflows
+      - GraphQL
       - Jobs
       - Runs
+      - Workflows
     properties:
       - type: Documentation
         url: https://docs.dagster.io/api/graphql
@@ -47,11 +47,11 @@ apis:
       an external asset has been updated and include metadata about the event.
     humanURL: https://docs.dagster.io/api/rest-apis/external-assets-rest-api
     tags:
-      - REST API
       - Assets
+      - Data Orchestration
       - Materializations
       - Observations
-      - Data Orchestration
+      - REST API
     properties:
       - type: Documentation
         url: https://docs.dagster.io/api/rest-apis/external-assets-rest-api

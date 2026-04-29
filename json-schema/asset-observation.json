@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/dagster/refs/heads/main/json-schema/asset-observation.json",
+  "title": "AssetObservation",
+  "description": "A reported observation event for an external asset in Dagster.",
+  "type": "object",
+  "required": ["asset_key"],
+  "properties": {
+    "asset_key": {
+      "type": "string",
+      "description": "The asset key being observed."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Free-form key/value metadata about the observation.",
+      "additionalProperties": true
+    },
+    "data_version": {
+      "type": "string",
+      "description": "A user-supplied data version identifier."
+    },
+    "description": {
+      "type": "string",
+      "description": "A human-readable description of the observation."
+    },
+    "partition": {
+      "type": "string",
+      "description": "The asset partition associated with the observation."
+    }
+  }
+}

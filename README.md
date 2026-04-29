@@ -1,22 +1,23 @@
 # Dagster (dagster)
-Dagster is a data orchestration platform centered on software-defined assets with strong observability and testing support.
+Dagster is a data orchestration platform centered on software-defined assets with strong observability and testing support. It exposes a GraphQL API for programmatic interaction with Dagster instances and a REST API for reporting external asset materializations, checks, and observations from outside pipelines.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/dagster/refs/heads/main/apis.yml)
 
 ## Scope
 
-- **Type:** Index 
-- **Position:** Consuming 
-- **Access:** 3rd-Party 
+- **Type:** Index
+- **Position:** Consumer
+- **Access:** 3rd-Party
+- **xType:** opensource
 
 ## Tags:
 
- - Workflows, Data Orchestration, Data Pipelines, ETL, Data Engineering
+ - Data Engineering, Data Orchestration, Data Pipelines, ETL, Workflows, Assets, GraphQL
 
 ## Timestamps
 
-- **Created:** 2026-03-03 
-- **Modified:** 2026-03-16 
+- **Created:** 2026-03-03
+- **Modified:** 2026-04-28
 
 ## APIs
 
@@ -25,10 +26,9 @@ The Dagster GraphQL API allows clients to interact with Dagster programmatically
 
 **Human URL:** [https://docs.dagster.io/api/graphql](https://docs.dagster.io/api/graphql)
 
-
 #### Tags:
 
- - GraphQL, Data Orchestration, Workflows, Jobs, Runs
+ - Data Orchestration, GraphQL, Jobs, Runs, Workflows
 
 #### Properties
 
@@ -40,14 +40,19 @@ The Dagster External Assets REST API provides endpoints to report asset material
 
 **Human URL:** [https://docs.dagster.io/api/rest-apis/external-assets-rest-api](https://docs.dagster.io/api/rest-apis/external-assets-rest-api)
 
-
 #### Tags:
 
- - REST API, Assets, Materializations, Observations, Data Orchestration
+ - Assets, Data Orchestration, Materializations, Observations, REST API
 
 #### Properties
 
 - [Documentation](https://docs.dagster.io/api/rest-apis/external-assets-rest-api)
+- [OpenAPI](openapi/dagster-external-assets-rest-api-openapi.yml)
+- [JSONSchema - Asset Materialization](json-schema/asset-materialization.json)
+- [JSONSchema - Asset Check](json-schema/asset-check.json)
+- [JSONSchema - Asset Observation](json-schema/asset-observation.json)
+- [Rules](rules/dagster-external-assets-rest-api-rules.yml)
+- [Capabilities](capabilities/dagster-external-assets-rest-api-capabilities.yml)
 
 ## Common Properties
 
@@ -71,6 +76,8 @@ The Dagster External Assets REST API provides endpoints to report asset material
 - [Security](https://dagster.io/security)
 - [About](https://dagster.io/company/about-us)
 - [Contact](https://dagster.io/contact)
+- [JSON-LD](json-ld/dagster-context.jsonld)
+- [Vocabulary](vocabulary/dagster-vocabulary.yml)
 
 ## Maintainers
 

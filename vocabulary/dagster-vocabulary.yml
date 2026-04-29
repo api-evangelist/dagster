@@ -1,0 +1,48 @@
+name: Dagster Vocabulary
+description: >-
+  Shared vocabulary of terms used across the Dagster External Assets REST API
+  and Dagster GraphQL API for describing assets, materializations, checks,
+  observations, runs, and jobs.
+terms:
+  - term: Asset
+    definition: >-
+      A logical unit of data that Dagster knows how to produce or observe;
+      identified by an asset key and tracked across runs.
+  - term: Asset Key
+    definition: >-
+      A stable, globally unique identifier for an asset within Dagster.
+  - term: Materialization
+    definition: >-
+      An event indicating that an asset has been produced or refreshed,
+      typically associated with metadata and a data version.
+  - term: Asset Check
+    definition: >-
+      A user-defined assertion about the quality, freshness, or shape of an
+      asset that is evaluated and produces a pass or fail result.
+  - term: Observation
+    definition: >-
+      An event capturing information about an asset without indicating that it
+      has been re-materialized.
+  - term: Data Version
+    definition: >-
+      A user-supplied identifier that distinguishes successive versions of an
+      asset's contents.
+  - term: Partition
+    definition: >-
+      A named slice of an asset's data, used to materialize and track subsets
+      such as date ranges or tenants.
+  - term: Run
+    definition: >-
+      A discrete execution of a Dagster job that materializes assets or
+      executes ops.
+  - term: Job
+    definition: >-
+      A graph of ops or assets that can be executed as a single run.
+  - term: Op
+    definition: >-
+      A unit of computation that consumes inputs and produces outputs within
+      a Dagster job graph.
+  - term: Repository
+    definition: >-
+      A collection of jobs, assets, schedules, and sensors loaded together by
+      Dagster.

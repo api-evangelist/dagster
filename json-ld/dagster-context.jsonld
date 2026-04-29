@@ -1,0 +1,43 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.dagster.io/",
+    "schema": "https://schema.org/",
+    "dagster": "https://schema.dagster.io/",
+    "AssetMaterialization": "dagster:AssetMaterialization",
+    "AssetCheck": "dagster:AssetCheck",
+    "AssetObservation": "dagster:AssetObservation",
+    "asset_key": {
+      "@id": "dagster:assetKey",
+      "@type": "schema:Text"
+    },
+    "metadata": {
+      "@id": "dagster:metadata",
+      "@type": "@json"
+    },
+    "data_version": {
+      "@id": "dagster:dataVersion",
+      "@type": "schema:Text"
+    },
+    "description": {
+      "@id": "schema:description",
+      "@type": "schema:Text"
+    },
+    "partition": {
+      "@id": "dagster:partition",
+      "@type": "schema:Text"
+    },
+    "check_name": {
+      "@id": "dagster:checkName",
+      "@type": "schema:Text"
+    },
+    "passed": {
+      "@id": "dagster:passed",
+      "@type": "schema:Boolean"
+    },
+    "severity": {
+      "@id": "dagster:severity",
+      "@type": "schema:Text"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/dagster/refs/heads/main/json-schema/asset-materialization.json",
+  "title": "AssetMaterialization",
+  "description": "A reported materialization event for an external asset in Dagster.",
+  "type": "object",
+  "required": ["asset_key"],
+  "properties": {
+    "asset_key": {
+      "type": "string",
+      "description": "The asset key being materialized."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Free-form key/value metadata about the materialization.",
+      "additionalProperties": true
+    },
+    "data_version": {
+      "type": "string",
+      "description": "A user-supplied data version identifier."
+    },
+    "description": {
+      "type": "string",
+      "description": "A human-readable description of the materialization."
+    },
+    "partition": {
+      "type": "string",
+      "description": "The asset partition associated with the materialization."
+    }
+  }
+}

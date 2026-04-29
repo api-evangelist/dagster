@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/dagster/refs/heads/main/json-schema/asset-check.json",
+  "title": "AssetCheck",
+  "description": "An asset check evaluation result reported to Dagster.",
+  "type": "object",
+  "required": ["asset_key", "check_name", "passed"],
+  "properties": {
+    "asset_key": {
+      "type": "string",
+      "description": "The asset key the check applies to."
+    },
+    "check_name": {
+      "type": "string",
+      "description": "The identifier of the asset check."
+    },
+    "passed": {
+      "type": "boolean",
+      "description": "True if the check passed, false otherwise."
+    },
+    "severity": {
+      "type": "string",
+      "description": "Severity level for failed checks.",
+      "enum": ["WARN", "ERROR"]
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Free-form key/value metadata about the check evaluation.",
+      "additionalProperties": true
+    }
+  }
+}

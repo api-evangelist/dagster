@@ -3,7 +3,11 @@ name: Dagster
 segments:
   - Workflows
 description: >-
-  Dagster is a data orchestration platform centered on software-defined assets with strong observability and testing support.
+  Dagster is a data orchestration platform centered on software-defined assets
+  with strong observability and testing support. It exposes a GraphQL API for
+  programmatic interaction with Dagster instances and a REST API for reporting
+  external asset materializations, checks, and observations from outside
+  pipelines.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -14,8 +18,10 @@ tags:
   - Data Pipelines
   - ETL
   - Workflows
+  - Assets
+  - GraphQL
 created: '2026-03-03'
-modified: '2026-03-16'
+modified: '2026-04-28'
 url: https://raw.githubusercontent.com/api-evangelist/dagster/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
@@ -55,6 +61,18 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.dagster.io/api/rest-apis/external-assets-rest-api
+      - type: OpenAPI
+        url: openapi/dagster-external-assets-rest-api-openapi.yml
+      - type: JSONSchema
+        url: json-schema/asset-materialization.json
+      - type: JSONSchema
+        url: json-schema/asset-check.json
+      - type: JSONSchema
+        url: json-schema/asset-observation.json
+      - type: Rules
+        url: rules/dagster-external-assets-rest-api-rules.yml
+      - type: Capabilities
+        url: capabilities/dagster-external-assets-rest-api-capabilities.yml
 common:
   - type: Portal
     url: https://dagster.cloud/
@@ -96,6 +114,11 @@ common:
     url: https://dagster.io/company/about-us
   - type: Contact
     url: https://dagster.io/contact
+  - type: JSON-LD
+    url: json-ld/dagster-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/dagster-vocabulary.yml
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+xType: opensource

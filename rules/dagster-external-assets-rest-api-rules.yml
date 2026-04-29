@@ -1,0 +1,38 @@
+extends:
+  - spectral:oas
+rules:
+  dagster-info-contact:
+    description: API info should provide a contact for the Dagster project.
+    given: $.info
+    severity: warn
+    then:
+      field: contact
+      function: truthy
+  dagster-asset-key-required:
+    description: Materialization, check, and observation request bodies must require asset_key.
+    given: $.components.schemas[?(@property == 'AssetMaterialization' || @property == 'AssetCheck' || @property == 'AssetObservation')]
+    severity: error
+    then:
+      field: required
+      function: truthy
+  dagster-check-severity-enum:
+    description: Asset check severity must be limited to WARN or ERROR.
+    given: $.components.schemas.AssetCheck.properties.severity
+    severity: error
+    then:
+      field: enum
+      function: truthy
+  dagster-operation-tags:
+    description: Every operation should be tagged with Materializations, Checks, or Observations.
+    given: $.paths[*][*]
+    severity: warn
+    then:
+      field: tags
+      function: truthy
+  dagster-cloud-token-scheme:
+    description: API should declare a Dagster-Cloud-Api-Token security scheme.
+    given: $.components.securitySchemes
+    severity: warn
+    then:
+      field: DagsterCloudToken
+      function: truthy

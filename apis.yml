@@ -76,17 +76,17 @@ apis:
 common:
   - type: Portal
     url: https://dagster.cloud/
-  - type: Sign Up
+  - type: SignUp
     url: https://dagster.cloud/signup
   - type: Documentation
     url: https://docs.dagster.io/
-  - type: API Reference
+  - type: APIReference
     url: https://docs.dagster.io/api
-  - type: Getting Started
+  - type: GettingStarted
     url: https://docs.dagster.io/getting-started/quickstart
   - type: Blog
     url: https://dagster.io/blog
-  - type: Change Log
+  - type: ChangeLog
     url: https://docs.dagster.io/about/changelog
   - type: Pricing
     url: https://dagster.io/pricing
@@ -96,17 +96,17 @@ common:
     url: https://dagster.io/community
   - type: Slack
     url: https://dagster.io/slack
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/dagster-io
-  - type: GitHub Repository
+  - type: GitHubRepository
     url: https://github.com/dagster-io/dagster
   - type: Integrations
     url: https://docs.dagster.io/integrations/libraries
   - type: Python SDK
     url: https://pypi.org/project/dagster/
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://dagster.io/privacy
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://dagster.io/terms
   - type: Security
     url: https://dagster.io/security
@@ -114,11 +114,11 @@ common:
     url: https://dagster.io/company/about-us
   - type: Contact
     url: https://dagster.io/contact
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/dagster-context.jsonld
   - type: Vocabulary
     url: vocabulary/dagster-vocabulary.yml
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
-xType: opensource
+kind: opensource

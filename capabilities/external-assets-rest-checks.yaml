@@ -1,0 +1,82 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dagster External Assets REST API — Checks
+  description: 'Dagster External Assets REST API — Checks. 1 operations. Lead operation: Report asset check evaluation. Self-contained
+    Naftiko capability covering one Dagster business surface.'
+  tags:
+  - Dagster
+  - Checks
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DAGSTER_API_KEY: DAGSTER_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: external-assets-rest-checks
+    baseUri: http://localhost:3000
+    description: Dagster External Assets REST API — Checks business capability. Self-contained, no shared references.
+    resources:
+    - name: report_asset_check
+      path: /report_asset_check/
+      operations:
+      - name: reportassetcheck
+        method: POST
+        description: Report asset check evaluation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: Dagster-Cloud-Api-Token
+      value: '{{env.DAGSTER_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: external-assets-rest-checks-rest
+    port: 8080
+    description: REST adapter for Dagster External Assets REST API — Checks. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/report-asset-check
+      name: report-asset-check
+      description: REST surface for report_asset_check.
+      operations:
+      - method: POST
+        name: reportassetcheck
+        description: Report asset check evaluation
+        call: external-assets-rest-checks.reportassetcheck
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: external-assets-rest-checks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dagster External Assets REST API — Checks. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: report-asset-check-evaluation
+      description: Report asset check evaluation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: external-assets-rest-checks.reportassetcheck
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

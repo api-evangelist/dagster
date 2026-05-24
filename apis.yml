@@ -119,6 +119,8 @@ common:
   url: json-ld/dagster-context.jsonld
 - type: Vocabulary
   url: vocabulary/dagster-vocabulary.yml
+- type: LLMsTxt
+  url: https://docs.dagster.io/llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

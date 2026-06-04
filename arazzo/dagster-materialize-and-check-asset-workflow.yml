@@ -1,0 +1,113 @@
+arazzo: 1.0.1
+info:
+  title: Dagster Materialize and Check External Asset
+  summary: Report an external asset materialization, then record an asset check evaluation against the same asset.
+  description: >-
+    A common external-asset reporting pattern for Dagster. After an upstream
+    system finishes producing data, this workflow first reports the
+    materialization of the external asset back to Dagster with metadata and a
+    data version, and then records an asset check evaluation for the same asset
+    key. The flow branches on the check outcome so that a failing check carries
+    its severity through to Dagster. Because the Dagster External Assets REST API
+    exposes only write-style event reporting endpoints, there is no read-back or
+    status-polling step; every step spells out its request inline so the flow can
+    be read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: dagsterExternalAssetsApi
+  url: ../openapi/dagster-external-assets-rest-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: materialize-and-check-asset
+  summary: Report a materialization for an external asset and then record a check evaluation on it.
+  description: >-
+    Reports an asset materialization event for the supplied asset key and then
+    records the result of an asset check on that same key, passing severity
+    through when the check did not pass.
+  inputs:
+    type: object
+    required:
+    - apiToken
+    - assetKey
+    - checkName
+    - passed
+    properties:
+      apiToken:
+        type: string
+        description: Dagster+ user API token sent in the Dagster-Cloud-Api-Token header.
+      assetKey:
+        type: string
+        description: The external asset key being materialized and checked.
+      dataVersion:
+        type: string
+        description: A user-supplied data version identifier for the materialization.
+      partition:
+        type: string
+        description: The asset partition associated with the materialization.
+      materializationDescription:
+        type: string
+        description: A human-readable description of the materialization.
+      metadata:
+        type: object
+        description: Free-form key/value metadata about the materialization.
+      checkName:
+        type: string
+        description: The identifier of the asset check being evaluated.
+      passed:
+        type: boolean
+        description: True if the asset check passed, false otherwise.
+      severity:
+        type: string
+        description: Severity level reported when the check failed (WARN or ERROR).
+  steps:
+  - stepId: reportMaterialization
+    description: >-
+      Record the materialization of the external asset, including any supplied
+      metadata, data version, partition, and description.
+    operationId: reportAssetMaterialization
+    parameters:
+    - name: Dagster-Cloud-Api-Token
+      in: header
+      value: $inputs.apiToken
+    requestBody:
+      contentType: application/json
+      payload:
+        asset_key: $inputs.assetKey
+        metadata: $inputs.metadata
+        data_version: $inputs.dataVersion
+        description: $inputs.materializationDescription
+        partition: $inputs.partition
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      materializationResult: $response.body
+    onSuccess:
+    - name: continueToCheck
+      type: goto
+      stepId: reportCheck
+      criteria:
+      - condition: $statusCode == 200
+  - stepId: reportCheck
+    description: >-
+      Record the asset check evaluation for the same asset key, carrying the
+      pass/fail status and the severity for a failing check.
+    operationId: reportAssetCheck
+    parameters:
+    - name: Dagster-Cloud-Api-Token
+      in: header
+      value: $inputs.apiToken
+    requestBody:
+      contentType: application/json
+      payload:
+        asset_key: $inputs.assetKey
+        check_name: $inputs.checkName
+        passed: $inputs.passed
+        severity: $inputs.severity
+        metadata: $inputs.metadata
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      checkResult: $response.body
+  outputs:
+    materializationResult: $steps.reportMaterialization.outputs.materializationResult
+    checkResult: $steps.reportCheck.outputs.checkResult

@@ -1,0 +1,109 @@
+arazzo: 1.0.1
+info:
+  title: Dagster Observe and Materialize External Asset
+  summary: Report an observation for an external asset, then report its materialization.
+  description: >-
+    Models the lifecycle of an external asset whose freshness is first observed
+    and then materialized. The workflow reports an asset observation event,
+    capturing a data version and metadata about the current state of the source,
+    and then reports the materialization of that same asset key once the data has
+    been produced. The two events share the same data version so Dagster can
+    correlate the observation with the resulting materialization. Because the
+    Dagster External Assets REST API exposes only event-reporting endpoints,
+    there is no read-back or polling step; every step inlines its request so the
+    flow can be executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: dagsterExternalAssetsApi
+  url: ../openapi/dagster-external-assets-rest-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: observe-then-materialize-asset
+  summary: Observe an external asset and then report its materialization with a shared data version.
+  description: >-
+    Records an observation event for the supplied asset key and then records a
+    materialization event for the same key, reusing the data version so the two
+    events are correlated in Dagster.
+  inputs:
+    type: object
+    required:
+    - apiToken
+    - assetKey
+    - dataVersion
+    properties:
+      apiToken:
+        type: string
+        description: Dagster+ user API token sent in the Dagster-Cloud-Api-Token header.
+      assetKey:
+        type: string
+        description: The external asset key being observed and materialized.
+      dataVersion:
+        type: string
+        description: A user-supplied data version shared by both the observation and materialization.
+      partition:
+        type: string
+        description: The asset partition associated with the events.
+      observationMetadata:
+        type: object
+        description: Free-form key/value metadata about the observation.
+      observationDescription:
+        type: string
+        description: A human-readable description of the observation.
+      materializationMetadata:
+        type: object
+        description: Free-form key/value metadata about the materialization.
+      materializationDescription:
+        type: string
+        description: A human-readable description of the materialization.
+  steps:
+  - stepId: reportObservation
+    description: >-
+      Record an observation of the external asset, capturing the current data
+      version and any supplied metadata, partition, and description.
+    operationId: reportAssetObservation
+    parameters:
+    - name: Dagster-Cloud-Api-Token
+      in: header
+      value: $inputs.apiToken
+    requestBody:
+      contentType: application/json
+      payload:
+        asset_key: $inputs.assetKey
+        metadata: $inputs.observationMetadata
+        data_version: $inputs.dataVersion
+        description: $inputs.observationDescription
+        partition: $inputs.partition
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      observationResult: $response.body
+    onSuccess:
+    - name: continueToMaterialize
+      type: goto
+      stepId: reportMaterialization
+      criteria:
+      - condition: $statusCode == 200
+  - stepId: reportMaterialization
+    description: >-
+      Record the materialization of the same asset key, reusing the data version
+      from the observation so the two events are correlated.
+    operationId: reportAssetMaterialization
+    parameters:
+    - name: Dagster-Cloud-Api-Token
+      in: header
+      value: $inputs.apiToken
+    requestBody:
+      contentType: application/json
+      payload:
+        asset_key: $inputs.assetKey
+        metadata: $inputs.materializationMetadata
+        data_version: $inputs.dataVersion
+        description: $inputs.materializationDescription
+        partition: $inputs.partition
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      materializationResult: $response.body
+  outputs:
+    observationResult: $steps.reportObservation.outputs.observationResult
+    materializationResult: $steps.reportMaterialization.outputs.materializationResult

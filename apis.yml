@@ -73,6 +73,18 @@ apis:
   - type: NaftikoCapability
     url: capabilities/external-assets-rest-observations.yaml
 common:
+- type: ArazzoWorkflows
+  url: arazzo/
+  workflows:
+  - url: arazzo/dagster-external-asset-event-pipeline-workflow.yml
+    name: Dagster External Asset Event Pipeline
+    summary: Observe, materialize, and check an external asset in a single correlated event pipeline.
+  - url: arazzo/dagster-materialize-and-check-asset-workflow.yml
+    name: Dagster Materialize and Check External Asset
+    summary: Report an external asset materialization, then record an asset check evaluation against the same asset.
+  - url: arazzo/dagster-observe-then-materialize-asset-workflow.yml
+    name: Dagster Observe and Materialize External Asset
+    summary: Report an observation for an external asset, then report its materialization.
 - type: LinkedIn
   url: https://www.linkedin.com/company/dagsterlabs
 - type: Portal

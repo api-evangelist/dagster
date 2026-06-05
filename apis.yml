@@ -2,9 +2,10 @@ aid: dagster
 name: Dagster
 segments:
 - Workflows
-description: Dagster is a data orchestration platform centered on software-defined assets with strong observability and testing
-  support. It exposes a GraphQL API for programmatic interaction with Dagster instances and a REST API for reporting external
-  asset materializations, checks, and observations from outside pipelines.
+description: >-
+  Dagster is a data orchestration platform centered on software-defined assets with strong observability and testing
+  support. It exposes a GraphQL API for programmatic interaction with Dagster instances and a REST API for reporting
+  external asset materializations, checks, and observations from outside pipelines.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -24,9 +25,10 @@ specificationVersion: '0.19'
 apis:
 - aid: dagster:graphql-api
   name: Dagster GraphQL API
-  description: The Dagster GraphQL API allows clients to interact with Dagster programmatically. It can be used to query information
-    about Dagster runs, retrieve metadata about repositories, jobs, and ops, and launch runs. The GraphQL endpoint is served
-    by the webserver at the /graphql route.
+  description: >-
+    The Dagster GraphQL API allows clients to interact with Dagster programmatically. It can be used to query
+    information about Dagster runs, retrieve metadata about repositories, jobs, and ops, and launch runs. The GraphQL
+    endpoint is served by the webserver at the /graphql route.
   humanURL: https://docs.dagster.io/api/graphql
   tags:
   - Data Orchestration
@@ -39,11 +41,14 @@ apis:
     url: https://docs.dagster.io/api/graphql
   - type: GraphQL Playground
     url: https://docs.dagster.io/api/graphql
+  - url: graphql/dagster-graphql.md
+    type: GraphQL
 - aid: dagster:external-assets-rest-api
   name: Dagster External Assets REST API
-  description: The Dagster External Assets REST API provides endpoints to report asset materializations, asset check evaluations,
-    and asset observations for external assets back to Dagster. This allows you to notify Dagster that an external asset has
-    been updated and include metadata about the event.
+  description: >-
+    The Dagster External Assets REST API provides endpoints to report asset materializations, asset check evaluations,
+    and asset observations for external assets back to Dagster. This allows you to notify Dagster that an external
+    asset has been updated and include metadata about the event.
   humanURL: https://docs.dagster.io/api/rest-apis/external-assets-rest-api
   tags:
   - Assets
@@ -66,13 +71,9 @@ apis:
     url: rules/dagster-external-assets-rest-api-rules.yml
   - type: Capabilities
     url: capabilities/dagster-external-assets-rest-api-capabilities.yml
-  - type: NaftikoCapability
-    url: capabilities/external-assets-rest-checks.yaml
-  - type: NaftikoCapability
-    url: capabilities/external-assets-rest-materializations.yaml
-  - type: NaftikoCapability
-    url: capabilities/external-assets-rest-observations.yaml
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/dagster/overview
 - type: ArazzoWorkflows
   url: arazzo/
   workflows:

@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dagster External Assets REST API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Materializations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Report asset materialization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3000/report_asset_materialization/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Records an asset materialization event for an external asset, with optional metadata, partition, data version, and description."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Checks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Report asset check evaluation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3000/report_asset_check/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Records an asset check evaluation result with pass/fail status, check name, severity, and optional metadata."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Observations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Report asset observation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3000/report_asset_observation/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Records an asset observation event with optional metadata, partition, data version, and description for an external asset."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,497 @@
+{
+  "info": {
+    "_postman_id": "ba1d42ff-2131-4551-bb2b-1c5f1e8f00eb",
+    "name": "Dagster External Assets REST API",
+    "description": "The Dagster External Assets REST API provides endpoints to report asset materializations, asset check evaluations, and asset observations for external assets back to Dagster. This allows you to notify Dagster that an external asset has been updated and include metadata about the event.\n\nContact Support:\n Name: Dagster",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:07:16.000Z",
+    "updatedAt": "2026-06-05T15:07:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ba1d42ff-2131-4551-bb2b-1c5f1e8f00eb"
+  },
+  "item": [
+    {
+      "name": "report_asset_materialization",
+      "item": [
+        {
+          "name": "Report asset materialization",
+          "id": "2ad7830d-5269-471e-93e6-e354d8ad07a3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"asset_key\": \"<string>\",\n  \"metadata\": {\n    \"anim_0\": true,\n    \"officia5\": -38657152.42063712\n  },\n  \"data_version\": \"<string>\",\n  \"description\": \"<string>\",\n  \"partition\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/report_asset_materialization/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "report_asset_materialization",
+                ""
+              ]
+            },
+            "description": "Records an asset materialization event for an external asset, with optional metadata, partition, data version, and description."
+          },
+          "response": [
+            {
+              "id": "5c9ff290-d081-4dc7-b00b-fc238bb3754a",
+              "name": "Materialization recorded successfully",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"asset_key\": \"<string>\",\n  \"metadata\": {\n    \"anim_0\": true,\n    \"officia5\": -38657152.42063712\n  },\n  \"data_version\": \"<string>\",\n  \"description\": \"<string>\",\n  \"partition\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/report_asset_materialization/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "report_asset_materialization",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-06-05T15:07:17.000Z",
+              "updatedAt": "2026-06-05T15:07:17.000Z",
+              "uid": "35240-5c9ff290-d081-4dc7-b00b-fc238bb3754a"
+            },
+            {
+              "id": "1fe5eecc-1f7f-4a79-b682-18cdc3226619",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"asset_key\": \"<string>\",\n  \"metadata\": {\n    \"anim_0\": true,\n    \"officia5\": -38657152.42063712\n  },\n  \"data_version\": \"<string>\",\n  \"description\": \"<string>\",\n  \"partition\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/report_asset_materialization/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "report_asset_materialization",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:07:17.000Z",
+              "updatedAt": "2026-06-05T15:07:17.000Z",
+              "uid": "35240-1fe5eecc-1f7f-4a79-b682-18cdc3226619"
+            }
+          ],
+          "createdAt": "2026-06-05T15:07:17.000Z",
+          "updatedAt": "2026-06-05T15:07:17.000Z",
+          "uid": "35240-2ad7830d-5269-471e-93e6-e354d8ad07a3"
+        }
+      ],
+      "id": "e8d9a313-914b-48e5-ac7e-e22a8594bea4",
+      "createdAt": "2026-06-05T15:07:17.000Z",
+      "updatedAt": "2026-06-05T15:07:17.000Z",
+      "uid": "35240-e8d9a313-914b-48e5-ac7e-e22a8594bea4"
+    },
+    {
+      "name": "report_asset_check",
+      "item": [
+        {
+          "name": "Report asset check evaluation",
+          "id": "e5337e32-1169-4d8e-92bc-adb3ef3bf494",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"asset_key\": \"<string>\",\n  \"check_name\": \"<string>\",\n  \"passed\": \"<boolean>\",\n  \"severity\": \"WARN\",\n  \"metadata\": {\n    \"sunt5\": \"amet Duis Excepteur\",\n    \"ipsum22\": false\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/report_asset_check/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "report_asset_check",
+                ""
+              ]
+            },
+            "description": "Records an asset check evaluation result with pass/fail status, check name, severity, and optional metadata."
+          },
+          "response": [
+            {
+              "id": "1f09f535-e987-4897-ad77-1c57737e4cb6",
+              "name": "Check evaluation recorded",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"asset_key\": \"<string>\",\n  \"check_name\": \"<string>\",\n  \"passed\": \"<boolean>\",\n  \"severity\": \"WARN\",\n  \"metadata\": {\n    \"sunt5\": \"amet Duis Excepteur\",\n    \"ipsum22\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/report_asset_check/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "report_asset_check",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-06-05T15:07:17.000Z",
+              "updatedAt": "2026-06-05T15:07:17.000Z",
+              "uid": "35240-1f09f535-e987-4897-ad77-1c57737e4cb6"
+            },
+            {
+              "id": "24522448-5e12-45ea-99d1-ae75d11019a2",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"asset_key\": \"<string>\",\n  \"check_name\": \"<string>\",\n  \"passed\": \"<boolean>\",\n  \"severity\": \"WARN\",\n  \"metadata\": {\n    \"sunt5\": \"amet Duis Excepteur\",\n    \"ipsum22\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/report_asset_check/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "report_asset_check",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:07:17.000Z",
+              "updatedAt": "2026-06-05T15:07:17.000Z",
+              "uid": "35240-24522448-5e12-45ea-99d1-ae75d11019a2"
+            }
+          ],
+          "createdAt": "2026-06-05T15:07:17.000Z",
+          "updatedAt": "2026-06-05T15:07:17.000Z",
+          "uid": "35240-e5337e32-1169-4d8e-92bc-adb3ef3bf494"
+        }
+      ],
+      "id": "cb77bdda-582c-4a10-9c21-9b7e27bfb35c",
+      "createdAt": "2026-06-05T15:07:17.000Z",
+      "updatedAt": "2026-06-05T15:07:17.000Z",
+      "uid": "35240-cb77bdda-582c-4a10-9c21-9b7e27bfb35c"
+    },
+    {
+      "name": "report_asset_observation",
+      "item": [
+        {
+          "name": "Report asset observation",
+          "id": "32a5b2d9-bdf2-4e27-8d5d-497261a75f2b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"asset_key\": \"<string>\",\n  \"metadata\": {\n    \"estea4\": \"elit in aliqua\"\n  },\n  \"data_version\": \"<string>\",\n  \"description\": \"<string>\",\n  \"partition\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/report_asset_observation/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "report_asset_observation",
+                ""
+              ]
+            },
+            "description": "Records an asset observation event with optional metadata, partition, data version, and description for an external asset."
+          },
+          "response": [
+            {
+              "id": "80c92121-0c45-4865-9863-0cc513c60101",
+              "name": "Observation recorded",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"asset_key\": \"<string>\",\n  \"metadata\": {\n    \"estea4\": \"elit in aliqua\"\n  },\n  \"data_version\": \"<string>\",\n  \"description\": \"<string>\",\n  \"partition\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/report_asset_observation/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "report_asset_observation",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-06-05T15:07:17.000Z",
+              "updatedAt": "2026-06-05T15:07:17.000Z",
+              "uid": "35240-80c92121-0c45-4865-9863-0cc513c60101"
+            },
+            {
+              "id": "13761871-8693-40df-86f9-021f5003e8b7",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"asset_key\": \"<string>\",\n  \"metadata\": {\n    \"estea4\": \"elit in aliqua\"\n  },\n  \"data_version\": \"<string>\",\n  \"description\": \"<string>\",\n  \"partition\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/report_asset_observation/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "report_asset_observation",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:07:17.000Z",
+              "updatedAt": "2026-06-05T15:07:17.000Z",
+              "uid": "35240-13761871-8693-40df-86f9-021f5003e8b7"
+            }
+          ],
+          "createdAt": "2026-06-05T15:07:17.000Z",
+          "updatedAt": "2026-06-05T15:07:17.000Z",
+          "uid": "35240-32a5b2d9-bdf2-4e27-8d5d-497261a75f2b"
+        }
+      ],
+      "id": "8b7657ff-fe2f-4cfd-8933-94a159e423ae",
+      "createdAt": "2026-06-05T15:07:17.000Z",
+      "updatedAt": "2026-06-05T15:07:17.000Z",
+      "uid": "35240-8b7657ff-fe2f-4cfd-8933-94a159e423ae"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ]
+}

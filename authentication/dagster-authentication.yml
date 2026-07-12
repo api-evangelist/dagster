@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/dagster-external-assets-rest-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: DagsterCloudToken
+  type: apiKey
+  in: header
+  parameter: Dagster-Cloud-Api-Token
+  description: User token used to authenticate against Dagster+ deployments.
+  sources:
+  - openapi/dagster-external-assets-rest-api-openapi.yml

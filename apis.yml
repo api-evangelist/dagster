@@ -72,6 +72,10 @@ apis:
   - type: Capabilities
     url: capabilities/dagster-external-assets-rest-api-capabilities.yml
 common:
+- type: DomainSecurity
+  url: security/dagster-domain-security.yml
+- type: Authentication
+  url: authentication/dagster-authentication.yml
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/dagster/overview
 - type: Arazzo

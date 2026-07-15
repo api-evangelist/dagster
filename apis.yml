@@ -72,6 +72,8 @@ apis:
   - type: Capabilities
     url: capabilities/dagster-external-assets-rest-api-capabilities.yml
 common:
+- type: AgenticAccess
+  url: agentic-access/dagster-agentic-access.yml
 - type: DomainSecurity
   url: security/dagster-domain-security.yml
 - type: Authentication

@@ -1,0 +1,90 @@
+openapi: 3.1.0
+info:
+  title: Dagster External Assets REST Checks API
+  description: The Dagster External Assets REST API provides endpoints to report asset materializations, asset check evaluations, and asset observations for external assets back to Dagster. This allows you to notify Dagster that an external asset has been updated and include metadata about the event.
+  version: '1.0'
+  contact:
+    name: Dagster
+    url: https://dagster.io/
+servers:
+- url: http://localhost:3000
+  description: Local Dagster webserver
+- url: https://{org}.dagster.plus/{deployment}
+  description: Dagster+ Cloud deployment
+  variables:
+    org:
+      default: my-org
+      description: Dagster+ organization slug
+    deployment:
+      default: prod
+      description: Dagster+ deployment name
+tags:
+- name: Checks
+  description: Report asset check evaluations.
+paths:
+  /report_asset_check/:
+    post:
+      operationId: reportAssetCheck
+      summary: Report asset check evaluation
+      description: Records an asset check evaluation result with pass/fail status, check name, severity, and optional metadata.
+      tags:
+      - Checks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetCheck'
+      responses:
+        '200':
+          description: Check evaluation recorded
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message describing the failure.
+    AssetCheck:
+      type: object
+      required:
+      - asset_key
+      - check_name
+      - passed
+      properties:
+        asset_key:
+          type: string
+          description: The asset key the check applies to.
+        check_name:
+          type: string
+          description: The identifier of the asset check.
+        passed:
+          type: boolean
+          description: True if the check passed, false otherwise.
+        severity:
+          type: string
+          description: Severity level for failed checks.
+          enum:
+          - WARN
+          - ERROR
+        metadata:
+          type: object
+          description: Free-form key/value metadata about the check evaluation.
+          additionalProperties: true
+  securitySchemes:
+    DagsterCloudToken:
+      type: apiKey
+      in: header
+      name: Dagster-Cloud-Api-Token
+      description: User token used to authenticate against Dagster+ deployments.

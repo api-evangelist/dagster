@@ -7,9 +7,22 @@ description: >-
   support. It exposes a GraphQL API for programmatic interaction with Dagster instances and a REST API for reporting
   external asset materializations, checks, and observations from outside pipelines.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dagster.png
 tags:
 - Data Engineering
 - Data Orchestration
@@ -26,9 +39,9 @@ apis:
 - aid: dagster:graphql-api
   name: Dagster GraphQL API
   description: >-
-    The Dagster GraphQL API allows clients to interact with Dagster programmatically. It can be used to query
-    information about Dagster runs, retrieve metadata about repositories, jobs, and ops, and launch runs. The GraphQL
-    endpoint is served by the webserver at the /graphql route.
+    The Dagster GraphQL API allows clients to interact with Dagster programmatically. It can be used to
+    query information about Dagster runs, retrieve metadata about repositories, jobs, and ops, and launch
+    runs. The GraphQL endpoint is served by the webserver at the /graphql route.
   humanURL: https://docs.dagster.io/api/graphql
   tags:
   - Data Orchestration
@@ -43,24 +56,59 @@ apis:
     url: https://docs.dagster.io/api/graphql
   - url: graphql/dagster-graphql.md
     type: GraphQL
-- aid: dagster:external-assets-rest-api
-  name: Dagster External Assets REST API
-  description: >-
-    The Dagster External Assets REST API provides endpoints to report asset materializations, asset check evaluations,
-    and asset observations for external assets back to Dagster. This allows you to notify Dagster that an external
-    asset has been updated and include metadata about the event.
-  humanURL: https://docs.dagster.io/api/rest-apis/external-assets-rest-api
+- aid: dagster:dagster-checks-api
+  name: Dagster Checks API
+  description: Report asset check evaluations.
+  humanURL: https://docs.dagster.io/api/graphql
   tags:
-  - Assets
-  - Data Orchestration
-  - Materializations
-  - Observations
-  - REST API
+  - Checks
   properties:
+  - type: OpenAPI
+    url: openapi/dagster-checks-api-openapi.yml
   - type: Documentation
     url: https://docs.dagster.io/api/rest-apis/external-assets-rest-api
+  - type: JSONSchema
+    url: json-schema/asset-materialization.json
+  - type: JSONSchema
+    url: json-schema/asset-check.json
+  - type: JSONSchema
+    url: json-schema/asset-observation.json
+  - type: Rules
+    url: rules/dagster-external-assets-rest-api-rules.yml
+  - type: Capabilities
+    url: capabilities/dagster-external-assets-rest-api-capabilities.yml
+- aid: dagster:dagster-materializations-api
+  name: Dagster Materializations API
+  description: Report asset materialization events.
+  humanURL: https://docs.dagster.io/api/graphql
+  tags:
+  - Materializations
+  properties:
   - type: OpenAPI
-    url: openapi/dagster-external-assets-rest-api-openapi.yml
+    url: openapi/dagster-materializations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dagster.io/api/rest-apis/external-assets-rest-api
+  - type: JSONSchema
+    url: json-schema/asset-materialization.json
+  - type: JSONSchema
+    url: json-schema/asset-check.json
+  - type: JSONSchema
+    url: json-schema/asset-observation.json
+  - type: Rules
+    url: rules/dagster-external-assets-rest-api-rules.yml
+  - type: Capabilities
+    url: capabilities/dagster-external-assets-rest-api-capabilities.yml
+- aid: dagster:dagster-observations-api
+  name: Dagster Observations API
+  description: Report asset observation events.
+  humanURL: https://docs.dagster.io/api/graphql
+  tags:
+  - Observations
+  properties:
+  - type: OpenAPI
+    url: openapi/dagster-observations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dagster.io/api/rest-apis/external-assets-rest-api
   - type: JSONSchema
     url: json-schema/asset-materialization.json
   - type: JSONSchema

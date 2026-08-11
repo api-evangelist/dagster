@@ -75,8 +75,6 @@ apis:
     url: json-schema/asset-observation.json
   - type: Rules
     url: rules/dagster-external-assets-rest-api-rules.yml
-  - type: Capabilities
-    url: capabilities/dagster-external-assets-rest-api-capabilities.yml
 - aid: dagster:dagster-materializations-api
   name: Dagster Materializations API
   description: Report asset materialization events.
@@ -96,8 +94,6 @@ apis:
     url: json-schema/asset-observation.json
   - type: Rules
     url: rules/dagster-external-assets-rest-api-rules.yml
-  - type: Capabilities
-    url: capabilities/dagster-external-assets-rest-api-capabilities.yml
 - aid: dagster:dagster-observations-api
   name: Dagster Observations API
   description: Report asset observation events.
@@ -117,9 +113,18 @@ apis:
     url: json-schema/asset-observation.json
   - type: Rules
     url: rules/dagster-external-assets-rest-api-rules.yml
-  - type: Capabilities
-    url: capabilities/dagster-external-assets-rest-api-capabilities.yml
 common:
+- type: IssueTracker
+  url: https://github.com/dagster-io/dagster/issues
+- type: Releases
+  url: https://github.com/dagster-io/dagster/releases
+- type: CodeOfConduct
+  url: https://github.com/dagster-io/dagster/blob/master/.github/CODE_OF_CONDUCT.md
+- type: ContributionGuide
+  url: https://github.com/dagster-io/dagster/blob/master/.github/CONTRIBUTING.md
+- type: License
+  name: Apache-2.0
+  url: https://github.com/dagster-io/dagster/blob/master/LICENSE
 - type: AgenticAccess
   url: agentic-access/dagster-agentic-access.yml
 - type: DomainSecurity

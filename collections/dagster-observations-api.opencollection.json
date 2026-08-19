@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dagster External Assets REST Checks Observations API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Observations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Report asset observation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3000/report_asset_observation/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Records an asset observation event with optional metadata, partition, data version, and description for an external asset."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

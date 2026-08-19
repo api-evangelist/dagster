@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dagster External Assets REST Checks Materializations API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Materializations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Report asset materialization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3000/report_asset_materialization/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Records an asset materialization event for an external asset, with optional metadata, partition, data version, and description."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

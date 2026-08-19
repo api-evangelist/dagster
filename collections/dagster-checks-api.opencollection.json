@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dagster External Assets REST Checks API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Checks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Report asset check evaluation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:3000/report_asset_check/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Records an asset check evaluation result with pass/fail status, check name, severity, and optional metadata."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

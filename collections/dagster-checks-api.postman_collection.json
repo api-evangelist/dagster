@@ -1,0 +1,169 @@
+{
+  "item": [
+    {
+      "id": "13fca285-6f94-4ccd-8a6e-f58e170fb48e",
+      "name": "Checks",
+      "description": {
+        "content": "Report asset check evaluations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a41d77a7-87ca-45c6-851e-4ea06245b33f",
+          "name": "Report asset check evaluation",
+          "request": {
+            "name": "Report asset check evaluation",
+            "description": {
+              "content": "Records an asset check evaluation result with pass/fail status, check name, severity, and optional metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "report_asset_check",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"asset_key\": \"<string>\",\n  \"check_name\": \"<string>\",\n  \"passed\": \"<boolean>\",\n  \"severity\": \"<string>\",\n  \"metadata\": {\n    \"key_0\": 9069,\n    \"key_1\": false\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e15ab4df-0292-44a5-8860-1a5e42252b21",
+              "name": "Check evaluation recorded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "report_asset_check",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"asset_key\": \"<string>\",\n  \"check_name\": \"<string>\",\n  \"passed\": \"<boolean>\",\n  \"severity\": \"<string>\",\n  \"metadata\": {\n    \"key_0\": 1196\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ecd5a4f-6b1f-4457-a1f9-83a365d6098c",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "report_asset_check",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"asset_key\": \"<string>\",\n  \"check_name\": \"<string>\",\n  \"passed\": \"<boolean>\",\n  \"severity\": \"<string>\",\n  \"metadata\": {\n    \"key_0\": 1196\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b8a51ddf-ae18-4ec3-887d-4449b694be22",
+    "name": "Dagster External Assets REST Checks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Dagster External Assets REST API provides endpoints to report asset materializations, asset check evaluations, and asset observations for external assets back to Dagster. This allows you to notify Dagster that an external asset has been updated and include metadata about the event.\n\nContact Support:\n Name: Dagster",
+      "type": "text/plain"
+    }
+  }
+}

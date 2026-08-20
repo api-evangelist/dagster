@@ -26,6 +26,14 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dagster.pn
 tags:
 - Data Engineering
 - Data Orchestration
+- Data Pipeline
+- ETL
+- Workflows
+- Assets
+- GraphQL
+tags_raw:
+- Data Engineering
+- Data Orchestration
 - Data Pipelines
 - ETL
 - Workflows
@@ -44,6 +52,12 @@ apis:
     runs. The GraphQL endpoint is served by the webserver at the /graphql route.
   humanURL: https://docs.dagster.io/api/graphql
   tags:
+  - Data Orchestration
+  - GraphQL
+  - Job
+  - Runs
+  - Workflows
+  tags_raw:
   - Data Orchestration
   - GraphQL
   - Jobs

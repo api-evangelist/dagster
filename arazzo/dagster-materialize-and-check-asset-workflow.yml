@@ -14,8 +14,11 @@ info:
     be read and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: dagsterExternalAssetsApi
-  url: ../openapi/dagster-external-assets-rest-api-openapi.yml
+- name: checksApi
+  url: ../openapi/dagster-checks-api-openapi.yml
+  type: openapi
+- name: materializationsApi
+  url: ../openapi/dagster-materializations-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: materialize-and-check-asset

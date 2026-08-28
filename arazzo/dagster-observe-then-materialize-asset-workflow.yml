@@ -14,8 +14,11 @@ info:
     flow can be executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: dagsterExternalAssetsApi
-  url: ../openapi/dagster-external-assets-rest-api-openapi.yml
+- name: materializationsApi
+  url: ../openapi/dagster-materializations-api-openapi.yml
+  type: openapi
+- name: observationsApi
+  url: ../openapi/dagster-observations-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: observe-then-materialize-asset

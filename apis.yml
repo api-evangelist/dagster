@@ -7,6 +7,20 @@ description: >-
   support. It exposes a GraphQL API for programmatic interaction with Dagster instances and a REST API for reporting
   external asset materializations, checks, and observations from outside pipelines.
 type: Index
+deliveryModel:
+  model: open-core
+  license: Apache-2.0
+  open_source: true
+  commercial: true
+  callable_host: true
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: high
+  source:
+  - license
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve

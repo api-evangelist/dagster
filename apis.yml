@@ -143,6 +143,8 @@ apis:
   - type: Rules
     url: rules/dagster-external-assets-rest-api-rules.yml
 common:
+- type: Website
+  url: https://www.dagster.io/
 - type: IssueTracker
   url: https://github.com/dagster-io/dagster/issues
 - type: Releases

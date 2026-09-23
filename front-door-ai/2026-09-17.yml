@@ -1,0 +1,29 @@
+# Front Door AI Index — dagster — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: dagster
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.dagster.io
+  final_host: dagster.io
+  ownership: inherited
+  owner: dagster
+  shares_host_with: null
+  inherited_from: dagster.io
+  verdict: scored
+  score: null
+  host_score: 19
+  density: null
+  words: 1546
+  tiers:
+    agentic: 1
+    core: 18
+    model: 0
+  ambiguous: 7
+  top_terms:
+    AI: 17
+    agent: 4
+    automation: 3
+    AI agent: 1
+    LLMs: 1

@@ -50,12 +50,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Error message describing the failure.
     AssetObservation:
       type: object
       required:
@@ -77,6 +71,12 @@ components:
         partition:
           type: string
           description: The asset partition associated with the observation.
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message describing the failure.
   securitySchemes:
     DagsterCloudToken:
       type: apiKey

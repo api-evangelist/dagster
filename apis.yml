@@ -147,6 +147,12 @@ apis:
   - type: Rules
     url: rules/dagster-external-assets-rest-api-rules.yml
 common:
+- type: Plans
+  url: plans/dagster-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/dagster-rate-limits.yml
+- type: FinOps
+  url: finops/dagster-finops.yml
 - type: Website
   url: https://www.dagster.io/
 - type: IssueTracker

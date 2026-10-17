@@ -50,12 +50,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Error message describing the failure.
     AssetCheck:
       type: object
       required:
@@ -82,6 +76,12 @@ components:
           type: object
           description: Free-form key/value metadata about the check evaluation.
           additionalProperties: true
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message describing the failure.
   securitySchemes:
     DagsterCloudToken:
       type: apiKey

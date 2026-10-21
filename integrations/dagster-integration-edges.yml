@@ -6,58 +6,11 @@ checked:
 - https://github.com/lfai/landscape
 - https://github.com/meltano/hub
 - https://github.com/mlcommons
+- opentofu/integrations/opentofu-integration-edges.yml
+- terraform/integrations/terraform-integration-edges.yml
 source:
 - datadog/integrations/datadog-integration-edges.yml
 edges:
-- partner_name: Datadog (own)
-  partner: datadog
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://github.com/DataDog/integrations-extras/tree/master/dagster
-  mirror_of: datadog/integrations/datadog-integration-edges.yml
-  apps:
-  - Dagster+
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Orchestration
-- partner_name: LF AI & Data (Landscape)
-  partner: lf-ai-data
-  partner_match: register
-  type: register
-  direction: partner-built
-  category: AI & data landscape
-  evidence: https://github.com/lfai/landscape/blob/95d361b8abfdd04a8c76bf38a012778d13621b5e/landscape.yml
-  channel: standard-directory
-  relationship: standard-participant
-  contract_reference:
-    register: LF AI & Data Landscape (github.com/lfai/landscape landscape.yml @95d361b8ab)
-    spec_file: null
-    standard: LF AI & Data
-    role: landscape-listed
-    registered_name: DAGSTER
-    registered_names:
-    - DAGSTER
-    website: https://dagster.io/
-    matched_domain: dagster.io
-    matched_by: domain+name-among-holders
-    member_tier: null
-    hosting_company: false
-    lfai_projects: []
-    landscape_categories:
-    - Data / Pipeline Management
-    landscape_entries: 1
-    signal_note: 'participation only: a landscape listing is standard-participant evidence, not depth. Entries,
-      categories, tier and projects are CONTEXT, never read (breadth is not credit)'
-    detected_by: sweep-mlops.py
-    detected: '2026-10-15'
-  detected_by: sweep-mlops.py
-  first_seen: '2026-10-15'
 - partner_name: Meltano
   partner: meltano
   partner_match: aggregator
@@ -87,3 +40,90 @@ edges:
     builder: 'community (Meltano Hub variant maintainers: voxmedia)'
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
+- partner_name: LF AI & Data (Landscape)
+  partner: lf-ai-data
+  partner_match: register
+  type: register
+  direction: partner-built
+  category: AI & data landscape
+  evidence: https://github.com/lfai/landscape/blob/3893e0631e1d12921a9b0ac25ffc78a2ac26239d/landscape.yml
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: LF AI & Data Landscape (github.com/lfai/landscape landscape.yml @3893e0631e)
+    spec_file: null
+    standard: LF AI & Data
+    role: landscape-listed
+    registered_name: DAGSTER
+    registered_names:
+    - DAGSTER
+    website: https://dagster.io/
+    matched_domain: dagster.io
+    matched_by: domain+name-among-holders
+    member_tier: null
+    hosting_company: false
+    lfai_projects: []
+    landscape_categories:
+    - Data / Pipeline Management
+    landscape_entries: 1
+    signal_note: 'participation only: a landscape listing is standard-participant evidence, not depth. Entries,
+      categories, tier and projects are CONTEXT, never read (breadth is not credit)'
+    detected_by: sweep-mlops.py
+    detected: '2026-10-19'
+  detected_by: sweep-mlops.py
+  first_seen: '2026-10-15'
+- partner_name: Datadog (own)
+  partner: datadog
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://github.com/DataDog/integrations-extras/tree/master/dagster
+  mirror_of: datadog/integrations/datadog-integration-edges.yml
+  apps:
+  - Dagster+
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Orchestration
+- partner_name: OpenTofu (opentofu-registry)
+  partner: opentofu
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: opentofu-registry
+  evidence: https://search.opentofu.org/provider/dagster-io/dagsterplus
+  mirror_of: opentofu/integrations/opentofu-integration-edges.yml
+  apps:
+  - dagster-io/dagsterplus
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: infrastructure-as-code provider registry listing
+  badges:
+  - Verified publisher (GitHub domain-verified organization)
+- partner_name: Terraform (terraform-registry)
+  partner: terraform
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: terraform-registry
+  evidence: https://registry.terraform.io/providers/dagster-io/dagsterplus
+  mirror_of: terraform/integrations/terraform-integration-edges.yml
+  apps:
+  - dagster-io/dagsterplus
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: infrastructure-as-code provider registry listing
+  badges:
+  - Verified publisher (GitHub domain-verified organization)

@@ -14,6 +14,7 @@ checked:
 - https://www.indexventures.com/companies/
 - https://www.sequoiacap.com/our-companies/
 - https://www.sequoiacap.com/sitemap.xml
+- artifact-hub/integrations/artifact-hub-integration-edges.yml
 source:
 - datadog/integrations/datadog-integration-edges.yml
 edges:
@@ -78,6 +79,32 @@ edges:
     detected: '2026-10-19'
   detected_by: sweep-mlops.py
   first_seen: '2026-10-15'
+- partner_name: Sequoia Capital
+  partner: sequoia-capital
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://sequoiacap.com/companies/dagster
+  category: vc portfolio participation
+  contract_reference:
+    register: Sequoia Capital companies (sequoiacap.com/companies/<slug>, from the site's sitemap.xml)
+    standard: null
+    spec_file: null
+    role: vc-portfolio-company
+    registered_name: Dagster
+    register_id: https://sequoiacap.com/companies/dagster
+    register_country: null
+    register_website: https://dagster.io/
+    matched_domain: dagster.io
+    matched_by: domain+name-among-holders
+    signal_note: 'participation only: the venture firm''s own published portfolio lists the company (investment);
+      an ownership and participation record, not conformance or certification'
+    detected_by: sweep-vc-portfolios.py
+    detected: '2026-10-21'
+  detected_by: sweep-vc-portfolios.py
+  first_seen: '2026-10-21'
 - partner_name: Datadog (own)
   partner: datadog
   partner_match: mirror
@@ -133,29 +160,24 @@ edges:
   category: infrastructure-as-code provider registry listing
   badges:
   - Verified publisher (GitHub domain-verified organization)
-- partner_name: Sequoia Capital
-  partner: sequoia-capital
-  partner_match: register
-  type: register
-  channel: standard-directory
-  relationship: standard-participant
-  direction: partner-built
-  evidence: https://sequoiacap.com/companies/dagster
-  category: vc portfolio participation
-  contract_reference:
-    register: Sequoia Capital companies (sequoiacap.com/companies/<slug>, from the site's sitemap.xml)
-    standard: null
-    spec_file: null
-    role: vc-portfolio-company
-    registered_name: Dagster
-    register_id: https://sequoiacap.com/companies/dagster
-    register_country: null
-    register_website: https://dagster.io/
-    matched_domain: dagster.io
-    matched_by: domain+name-among-holders
-    signal_note: 'participation only: the venture firm''s own published portfolio lists the company (investment);
-      an ownership and participation record, not conformance or certification'
-    detected_by: sweep-vc-portfolios.py
-    detected: '2026-10-21'
-  detected_by: sweep-vc-portfolios.py
-  first_seen: '2026-10-21'
+- partner_name: Artifact Hub (artifact-hub)
+  partner: artifact-hub
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: artifact-hub
+  evidence: https://artifacthub.io/packages/search?repo=dagster
+  mirror_of: artifact-hub/integrations/artifact-hub-integration-edges.yml
+  apps:
+  - dagster
+  - dagster-user-deployments
+  - dagster-cloud-agent
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: Artifact Hub listing (Helm chart)
+  badges:
+  - 'Verified publisher (Artifact Hub verified publisher: repository ownership proven)'

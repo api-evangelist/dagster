@@ -1,4 +1,4 @@
-# Dagster (dagster)
+# Dagster
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,107 +66,173 @@
 
 Dagster is a data orchestration platform centered on software-defined assets with strong observability and testing support. It exposes a GraphQL API for programmatic interaction with Dagster instances and a REST API for reporting external asset materializations, checks, and observations from outside pipelines.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/dagster/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/dagster/refs/heads/main/apis.yml)
+**Areas:** Data Engineering · Data Orchestration · Data Pipeline · ETL · Workflows · Assets · GraphQL
 
-## Scope
+## Dagster on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Dagster is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/dagster/](https://apis.io/providers/dagster/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-- Data Engineering
-- Data Orchestration
-- Data Pipelines
-- ETL
-- Workflows
-- Assets
-- GraphQL
+- [Dagster GraphQL API](https://apis.io/apis/dagster/graphql-api/) — The Dagster GraphQL API allows clients to interact with Dagster programmatically. It can be used to query information about Dagster runs, retrieve metadata…
+- [Dagster Checks API](https://apis.io/apis/dagster/dagster-checks-api/) — Report asset check evaluations.
+- [Dagster Materializations API](https://apis.io/apis/dagster/dagster-materializations-api/) — Report asset materialization events.
+- [Dagster Observations API](https://apis.io/apis/dagster/dagster-observations-api/) — Report asset observation events.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-03
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Arazzo workflows (3)
 
-### Dagster GraphQL API
+Multi-step workflows that chain operations into a business task.
 
-The Dagster GraphQL API allows clients to interact with Dagster programmatically. It can be used to query information about Dagster runs, retrieve metadata about repositories, jobs, and ops, and launch runs. The GraphQL endpoint is served by the webserver at the /graphql route.
+- [Dagster External Asset Event Pipeline](https://apis.io/arazzos/dagster/dagster-external-asset-event-pipeline-workflow/)
+- [Dagster Materialize and Check External Asset](https://apis.io/arazzos/dagster/dagster-materialize-and-check-asset-workflow/)
+- [Dagster Observe and Materialize External Asset](https://apis.io/arazzos/dagster/dagster-observe-then-materialize-asset-workflow/)
 
-- **Human URL:** [https://docs.dagster.io/api/graphql](https://docs.dagster.io/api/graphql)
+#### GraphQL (1)
 
-#### Tags
+GraphQL schemas.
 
-- Data Orchestration
-- GraphQL
-- Jobs
-- Runs
-- Workflows
+- [Dagster GraphQL API](https://apis.io/graphqls/dagster/dagster-graphql/)
 
-#### Properties
+#### Agentic access (1)
 
-- [Documentation](https://docs.dagster.io/api/graphql)
-- [Graph Q L  Playground](https://docs.dagster.io/api/graphql)
-- [Postman Collection](collections/dagster-external-assets-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/dagster-external-assets-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-### Dagster External Assets REST API
+- [Dagster Agentic Access](https://apis.io/agentic-access/dagster/dagster-agentic-access/)
 
-The Dagster External Assets REST API provides endpoints to report asset materializations, asset check evaluations, and asset observations for external assets back to Dagster. This allows you to notify Dagster that an external asset has been updated and include metadata about the event.
+#### JSON Schema (3)
 
-- **Human URL:** [https://docs.dagster.io/api/rest-apis/external-assets-rest-api](https://docs.dagster.io/api/rest-apis/external-assets-rest-api)
+The data models the API reads and writes.
 
-#### Tags
+- [AssetCheck](https://apis.io/schemas/dagster/asset-check/)
+- [AssetMaterialization](https://apis.io/schemas/dagster/asset-materialization/)
+- [AssetObservation](https://apis.io/schemas/dagster/asset-observation/)
 
-- Assets
-- Data Orchestration
-- Materializations
-- Observations
-- REST API
+#### JSON-LD (1)
 
-#### Properties
+Linked-data contexts for the provider's vocabulary.
 
-- [Documentation](https://docs.dagster.io/api/rest-apis/external-assets-rest-api)
-- [OpenAPI](openapi/dagster-external-assets-rest-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/dagster-external-assets-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/dagster-external-assets-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/asset-materialization.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/asset-check.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/asset-observation.json) — [JSON Schema](https://json-schema.org/specification)
-- [Rules](rules/dagster-external-assets-rest-api-rules.yml)
-- [Capabilities](capabilities/dagster-external-assets-rest-api-capabilities.yml)
+- [Dagster Context](https://apis.io/jsonld/dagster/dagster-context/)
 
-## Common Properties
+#### Vocabulary (1)
 
-- [Arazzo Workflows](arazzo/) — [Arazzo Specification](https://spec.openapis.org/arazzo/latest.html)
-- [LinkedIn](https://www.linkedin.com/company/dagsterlabs)
-- [Portal](https://dagster.cloud/)
-- [Sign Up](https://dagster.cloud/signup)
+The provider's domain terms, defined.
+
+- [Dagster Vocabulary](https://apis.io/vocabularies/dagster/dagster-vocabulary/)
+
+#### Collections (5)
+
+Postman and Open Collection request collections.
+
+- [Dagster External Assets REST Checks API](https://apis.io/collections/dagster/open-dagster-checks-api/)
+- [Dagster External Assets REST API](https://apis.io/collections/dagster/open-dagster-external-assets-rest-api/)
+- [Dagster External Assets REST Checks Materializations API](https://apis.io/collections/dagster/open-dagster-materializations-api/)
+- [Dagster External Assets REST Checks Observations API](https://apis.io/collections/dagster/open-dagster-observations-api/)
+- [Dagster External Assets REST API](https://apis.io/collections/dagster/postman-dagster-external-assets-rest-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Dagster — external assets rest api rules](https://apis.io/rules/dagster/dagster-external-assets-rest-api-rules/)
+- [Dagster — jsonschema rules](https://apis.io/rules/dagster/dagster-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Dagster Authentication](https://apis.io/security/dagster/dagster-authentication/)
+- [Dagster Domain Security](https://apis.io/security/dagster/dagster-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Dagster Plans Pricing](https://apis.io/plans/dagster/dagster-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Dagster Rate Limits](https://apis.io/rate-limits/dagster/dagster-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Dagster Finops](https://apis.io/finops/dagster/dagster-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.dagster.io/)
 - [Documentation](https://docs.dagster.io/)
-- [API Reference](https://docs.dagster.io/api)
-- [Getting Started](https://docs.dagster.io/getting-started/quickstart)
-- [Blog](https://dagster.io/blog)
-- [Changelog](https://docs.dagster.io/about/changelog)
+- [Getting started](https://docs.dagster.io/getting-started/quickstart)
+- [API reference](https://docs.dagster.io/api)
 - [Pricing](https://dagster.io/pricing)
 - [Support](https://dagster.io/support)
-- [Community](https://dagster.io/community)
-- [Slack](https://dagster.io/slack)
-- [GitHub Organization](https://github.com/dagster-io)
-- [GitHub Repository](https://github.com/dagster-io/dagster)
-- [Integrations](https://docs.dagster.io/integrations/libraries)
-- [Python  S D K](https://pypi.org/project/dagster/)
-- [Privacy Policy](https://dagster.io/privacy)
-- [Terms of Service](https://dagster.io/terms)
+- [Changelog](https://docs.dagster.io/about/changelog)
+- [Blog](https://dagster.io/blog)
 - [Security](https://dagster.io/security)
-- [About](https://dagster.io/company/about-us)
-- [Contact](https://dagster.io/contact)
-- [JSON-LD](json-ld/dagster-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Vocabulary](vocabulary/dagster-vocabulary.yml)
-- [L L Ms Txt](https://docs.dagster.io/llms.txt)
+- [Terms of service](https://dagster.io/terms)
+- [Privacy policy](https://dagster.io/privacy)
+- [GitHub](https://github.com/dagster-io)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 54.4** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 57.3 |
+| Contract governance | 27.3 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 65.5 |
+| Access clarity | 52.6 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/dagster/](https://apis.io/providers/dagster/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Dagster: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/dagster/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
